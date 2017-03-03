@@ -1,3 +1,4 @@
+package code2;
 
 /**
  * @date: 02/03/2017 9:04 PM
@@ -34,13 +35,3 @@ public class AddTwoNum {
     }
 }
 
-/**
- * Definition for singly-linked list.
- */
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x){
-        val = x;
-    }
-}
