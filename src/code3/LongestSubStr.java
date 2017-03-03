@@ -1,5 +1,9 @@
 package code3;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
 /**
  * @date: 03/03/2017 10:49 PM
  * @author: qinjiangbo@github.io
@@ -10,12 +14,30 @@ package code3;
             Given "abcabcbb", the answer is "abc", which the length is 3.
             Given "bbbbb", the answer is "b", with the length of 1.
             Given "pwwkew", the answer is "wke", with the length of 3.
-            Note that the answer must be a substring,
-            "pwke" is a subsequence and not a substring.
+            Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
  */
 public class LongestSubStr {
 
-    public int lengthOfLongestSubstring(String s) {
-        return 1;
+    public static int lengthOfLongestSubstring(String s) {
+        HashSet<Character> hashSet = new HashSet<>();
+        int len = s.length();
+        int max = 0;
+        for(int i = 0, j = 0; j < len; j++) { // j is quick pointer
+            // i is slow pointer
+            if (hashSet.contains(s.charAt(j))){
+                hashSet.remove(s.charAt(i++));
+                j--; // wait i for a loop
+            } else {
+                hashSet.add(s.charAt(j));
+                max = max > hashSet.size() ? max : hashSet.size();
+            }
+        }
+        return max;
     }
+
+    public static void main(String[] args) {
+        int len = lengthOfLongestSubstring("bebacg");
+        System.out.println(len);
+    }
+
 }
