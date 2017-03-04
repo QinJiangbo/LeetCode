@@ -14,7 +14,7 @@ import java.util.HashSet;
             Given "pwwkew", the answer is "wke", with the length of 3.
             Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
  */
-public class LongestSubStr {
+public class LongestNonRepeatStr {
 
     public static int lengthOfLongestSubstring(String s) {
         HashSet<Character> hashSet = new HashSet<>();
