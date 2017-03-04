@@ -112,10 +112,4 @@ public class MedianOfArrays {
         }
         return nums;
     }
-
-    public static void main(String[] args) {
-        int[] nums1 = {1, 4, 6};
-        int[] nums2 = {2, 8};
-        System.out.println(findMedianSortedArrays(nums1, nums2));
-    }
 }
