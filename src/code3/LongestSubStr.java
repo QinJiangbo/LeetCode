@@ -33,9 +33,4 @@ public class LongestSubStr {
         return max;
     }
 
-    public static void main(String[] args) {
-        int len = lengthOfLongestSubstring("bebacg");
-        System.out.println(len);
-    }
-
 }
