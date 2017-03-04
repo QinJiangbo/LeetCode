@@ -21,6 +21,36 @@ package code4;
 public class MedianOfArrays {
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        return 0.0;
+        int[] nums = mergeArrays(nums1, nums2);
+        int len = nums.length;
+        double median = 0.0;
+        if (len % 2 == 1){
+            median = nums[len/2];
+        } else {
+            median = (double) (nums[len/2] + nums[len/2 - 1])/2;
+        }
+        return median;
+    }
+
+    public int[] mergeArrays(int[] nums1, int[] nums2) {
+        int m = nums1.length;
+        int n = nums2.length;
+        int[] nums = new int[m+n];
+        for (int i = 0, j = 0, k = 0; k<(m+n); k++) {
+            if (i == m) {
+                nums[k] = nums2[j++];
+                continue;
+            }
+            if (j == n) {
+                nums[k] = nums1[i++];
+                continue;
+            }
+            if (nums1[i] < nums2[j]) {
+                nums[k] = nums1[i++];
+            } else {
+                nums[k] = nums2[j++];
+            }
+        }
+        return nums;
     }
 }
