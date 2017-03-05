@@ -45,8 +45,4 @@ public class Solution {
         } else { return 0; }
         return negative ? -(int) result : (int) result;
     }
-
-    public static void main(String[] args) {
-
-    }
 }
