@@ -15,11 +15,25 @@ package ReverseInteger;
  */
 public class Solution {
 
+    public int reverse(int x) {
+        long result = 0; // to accept large integer
+        while (x != 0) {
+            int tail = x % 10;
+            result = result * 10 + tail;
+            x = x / 10;
+        }
+        if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
+            return 0;
+        }
+        return (int) result;
+    }
+
     /**
      * divide by 10 step by step, the first remainder [ last part] will times 10 firstly,
      * the last remainder [ first part ] will times last, so the number is reversed
      */
-    public int reverse(int x) {
+    @Deprecated
+    public int reverse0(int x) {
         int result = 0;
         while (x != 0) {
             int tail = x % 10;
