@@ -1,4 +1,4 @@
-package code5;
+package LongestPalindromicStr;
 
 /**
  * @date: 05/03/2017 3:37 PM

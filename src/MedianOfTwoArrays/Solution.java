@@ -1,4 +1,4 @@
-package code4;
+package MedianOfTwoArrays;
 
 /**
  * @date: 04/03/2017 9:52 AM
@@ -18,7 +18,7 @@ package code4;
             nums2 = [3, 4]
         The median is (2 + 3)/2 = 2.5
  */
-public class MedianOfArrays {
+public class Solution {
 
     /**
      *       left_part          |        right_part

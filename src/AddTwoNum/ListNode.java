@@ -1,4 +1,4 @@
-package code2;
+package AddTwoNum;
 
 /**
  * Definition for singly-linked list.

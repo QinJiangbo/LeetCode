@@ -1,4 +1,4 @@
-package code2;
+package AddTwoNum;
 
 /**
  * @date: 02/03/2017 9:04 PM
@@ -12,7 +12,7 @@ package code2;
             Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
             Output: 7 -> 0 -> 8
  */
-public class AddTwoNum {
+public class Solution {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode prevNode = new ListNode(0);

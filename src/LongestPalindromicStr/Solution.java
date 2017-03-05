@@ -1,4 +1,4 @@
-package code5;
+package LongestPalindromicStr;
 
 
 /**
@@ -17,7 +17,7 @@ package code5;
             Input: "cbbd"
             Output: "bb"
  */
-public class LongestPalindromicStr {
+public class Solution {
 
     int start = -1, offset = 0;
 
