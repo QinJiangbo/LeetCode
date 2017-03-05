@@ -31,6 +31,14 @@ public class LongestPalindromicStr {
         return s.substring(start, start + offset);
     }
 
+    /**
+     * very simple solutions, just extent the palindromic string from very point
+     *        <- | ->
+     * A D G H K H D K D H K S F A
+     * @param s
+     * @param m move left
+     * @param n move right
+     */
     private void extendPalindrom(String s, int m, int n) {
         int len = s.length();
         while (m >= 0 && n <len && s.charAt(m) == s.charAt(n)) {
