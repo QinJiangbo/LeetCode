@@ -28,7 +28,7 @@ public class LongestPalindromicStr {
      * @param s
      * @return
      */
-    public static String longestPalindrome(String s) {
+    public String longestPalindrome(String s) {
         int len = s.length();
         String rs = new StringBuffer(s).reverse().toString();
         // find the longest common string
@@ -47,10 +47,5 @@ public class LongestPalindromicStr {
             }
         }
         return s.substring(start, start + offset);
-    }
-
-    public static void main(String[] args) {
-        String s = "cbbd";
-        System.out.println(longestPalindrome(s));
     }
 }
