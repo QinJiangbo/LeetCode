@@ -38,7 +38,7 @@ public class Solution {
                 if (state >= sa.length) {
                     if (marked) nexts.add(state);
                 } else if (marked) {
-                    nexts.add(state); // add item itself
+                    nexts.add(state); // add item itself, and it's optional
                     for (int j = state; j < sa.length
                             && (pa[i] == '.' || pa[i] == sa[j]); j++) {
                         nexts.add(j + 1);
