@@ -13,23 +13,30 @@ import java.util.Map;
 public class Solution {
 
     public int romanToInt(String s) {
-
-        return 0;
+        int len = s.length(), number = 0;
+        Map<Character, Integer> table = buildTable();
+        for (int i = 0; i < len; i++) {
+            number = number + table.get(s.charAt(i));
+        }
+        if (s.contains("CM") || s.contains("CD")) { number = number - 200; }
+        if (s.contains("XC") || s.contains("XL")) { number = number - 20; }
+        if (s.contains("IX") || s.contains("IV")) { number = number - 2; }
+        return number;
     }
 
     /**
      * build the roman letter table
      * @return
      */
-    private Map<String, Integer> buildTable() {
-        Map<String, Integer> map = new HashMap<>();
-        map.put("I", 1);
-        map.put("V", 5);
-        map.put("X", 10);
-        map.put("L", 50);
-        map.put("C", 100);
-        map.put("D", 500);
-        map.put("M", 1000);
+    private Map<Character, Integer> buildTable() {
+        Map<Character, Integer> map = new HashMap<>();
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
         return map;
     }
 }
