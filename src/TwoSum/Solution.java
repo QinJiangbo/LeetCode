@@ -32,10 +32,4 @@ public class Solution {
         }
         return result;
     }
-
-    public static void main(String[] args) {
-        int[] nums = {3, 5, 8, 10};
-        int target = 13;
-        System.out.println(Arrays.toString(twoSum(nums, target)));
-    }
 }
