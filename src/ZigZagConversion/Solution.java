@@ -94,8 +94,4 @@ public class Solution {
         }
         return zigzag;
     }
-
-    public static void main(String[] args) {
-        System.out.println(new Solution().convert("PAYPALISHIRING", 3));
-    }
 }
