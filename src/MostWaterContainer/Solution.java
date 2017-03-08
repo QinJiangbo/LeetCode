@@ -59,9 +59,4 @@ public class Solution {
         return maxArea;
     }
 
-    public static void main(String[] args) {
-        int[] height = { 2, 3, 10, 5, 7, 8, 9};
-        System.out.println(maxArea(height));
-    }
-
 }
