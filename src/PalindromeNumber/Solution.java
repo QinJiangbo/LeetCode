@@ -19,7 +19,4 @@ public class Solution {
         return ax >= 0 && rx == ax;
     }
 
-    public static void main(String[] args) {
-        System.out.println(isPalindrome(-2147447412));
-    }
 }
