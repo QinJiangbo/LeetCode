@@ -10,7 +10,9 @@ import java.util.Map;
 public class URLShortener {
 
     private static final String DICT = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    // 数字->字符映射
     private static final char[] CHARS = DICT.toCharArray();
+    // 字符->数字映射
     private static final Map<Character, Integer> NUMBERS = new HashMap<>();
 
     static {
