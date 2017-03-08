@@ -43,6 +43,7 @@ public class Solution {
                     list.add(nums[left]);
                     list.add(nums[right]);
                     intSet.add(list);
+                    // remove duplicates
                     while (left < right && nums[left] == nums[left + 1]) { left++; }
                     while (left < right && nums[right] == nums[right - 1]) { right--; }
                     left++; right--;
