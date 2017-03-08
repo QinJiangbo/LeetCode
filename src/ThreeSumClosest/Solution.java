@@ -47,9 +47,4 @@ public class Solution {
         }
         return positive ? (target + gap) : (target - gap);
     }
-
-    public static void main(String[] args) {
-        int[] nums = {0, 2, 1, -3};
-        System.out.println(new Solution().threeSumClosest(nums, 1));
-    }
 }
