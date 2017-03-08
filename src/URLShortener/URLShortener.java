@@ -9,7 +9,8 @@ import java.util.Map;
  */
 public class URLShortener {
 
-    private static final String DICT = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    private static final String DICT = "abcdefghijklmnopqrstuvwxyz" +
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     // 数字->字符映射
     private static final char[] CHARS = DICT.toCharArray();
     // 字符->数字映射
@@ -55,10 +56,5 @@ public class URLShortener {
             id = id + (long) (NUMBERS.get(shorts[i]) * Math.pow(62, len-i-1));
         }
         return id;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(encode(39729551080l));
-        System.out.println(decode("RwTji8"));
     }
 }
