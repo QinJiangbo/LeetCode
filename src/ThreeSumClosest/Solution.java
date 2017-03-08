@@ -1,5 +1,7 @@
 package ThreeSumClosest;
 
+import java.util.Arrays;
+
 /**
  * @date: 08/03/2017 7:56 PM
  * @author: qinjiangbo@github.io
@@ -15,7 +17,39 @@ package ThreeSumClosest;
 public class Solution {
 
     public int threeSumClosest(int[] nums, int target) {
+        int len = nums.length;
+        Arrays.sort(nums);
+        int gap = Integer.MAX_VALUE;
+        boolean positive = true;
+        for (int i = 0; i < len - 2; i++) {
+            if (i > 0 && nums[i] == nums[i-1]) { continue; }
+            int left = i + 1, right = len - 1;
+            while (left < right) {
+                int sum = nums[i] + nums[left] + nums[right];
+                if (sum < target) {
+                    if (gap > target - sum) {
+                        gap = target - sum;
+                        positive = false;
+                    }
+                    left++;
+                }
+                else if (sum > target) {
+                    if (gap > sum - target) {
+                        gap = sum - target;
+                        positive = true;
+                    }
+                    right--;
+                }
+                else {
+                    return sum;
+                }
+            }
+        }
+        return positive ? (target + gap) : (target - gap);
+    }
 
-        return 1;
+    public static void main(String[] args) {
+        int[] nums = {0, 2, 1, -3};
+        System.out.println(new Solution().threeSumClosest(nums, 1));
     }
 }
