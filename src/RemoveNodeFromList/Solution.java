@@ -21,6 +21,9 @@ import java.util.List;
  */
 public class Solution {
 
+    /**
+     * ACCEPT version, with extra space
+     */
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         List<ListNode> nodes = new ArrayList<>();
         ListNode current = head;
