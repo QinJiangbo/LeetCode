@@ -35,7 +35,6 @@ public class Solution {
         }
 
         // fix the gap and move together
-
         while (fast.next != null) {
             fast = fast.next;
             slow = slow.next;
