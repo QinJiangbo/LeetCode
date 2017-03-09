@@ -21,10 +21,37 @@ import java.util.List;
  */
 public class Solution {
 
+
     /**
-     * ACCEPT version, with extra space
+     * ACCEPT version, ONE PASS VERSION
      */
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode start = new ListNode(0);
+        ListNode fast = head, slow = head, beforeSlow = start;
+        start.next = head;
+
+        // move fast node in order to keep a gap from slow node
+        for (int i = 1; i < n; i++) {
+            fast = fast.next;
+        }
+
+        // fix the gap and move together
+
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+            beforeSlow = beforeSlow.next;
+        }
+
+        // remove the node
+        beforeSlow.next = slow.next;
+        return start.next;
+    }
+
+    /**
+     * ACCEPT version, with extra space, not one pass solution
+     */
+    public ListNode removeNthFromEnd0(ListNode head, int n) {
         List<ListNode> nodes = new ArrayList<>();
         ListNode current = head;
         nodes.add(current);
