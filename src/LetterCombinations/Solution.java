@@ -75,10 +75,4 @@ public class Solution {
         }
         return lists;
     }
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        List<String> lists = solution.letterCombinations0("");
-        System.out.println(Arrays.toString(lists.toArray()));
-    }
 }
