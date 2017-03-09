@@ -21,7 +21,6 @@ import java.util.List;
  */
 public class Solution {
 
-
     /**
      * ACCEPT version, ONE PASS VERSION
      */
