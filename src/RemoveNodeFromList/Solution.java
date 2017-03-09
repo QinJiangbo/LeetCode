@@ -1,5 +1,8 @@
 package RemoveNodeFromList;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @date: 09/03/2017 1:54 PM
  * @author: qinjiangbo@github.io
@@ -18,8 +21,27 @@ package RemoveNodeFromList;
  */
 public class Solution {
 
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-
-        return null;
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
+        List<ListNode> nodes = new ArrayList<>();
+        ListNode current = head;
+        nodes.add(current);
+        while (current.next != null) {
+            current = current.next;
+            nodes.add(current);
+        }
+        int len = nodes.size();
+        nodes.remove(len - n);
+        len = len -1;
+        if (len > 1) {
+            for (int i = 0; i < len-1; i++) {
+                nodes.get(i).next = nodes.get(i+1);
+            }
+            nodes.get(len-1).next = null;
+        } else {
+            if (nodes.size() != 0) {
+                nodes.get(0).next = null;
+            }
+        }
+        return nodes.size() == 0 ? null : nodes.get(0);
     }
 }
