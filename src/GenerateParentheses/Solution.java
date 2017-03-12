@@ -83,9 +83,4 @@ public class Solution {
         }
         return lists.get(lists.size() - 1);
     }
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(Arrays.toString(solution.generateParenthesis(4).toArray()));
-    }
 }
