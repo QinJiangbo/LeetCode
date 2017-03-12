@@ -1,5 +1,8 @@
 package ValidParentheses;
 
+import java.util.EmptyStackException;
+import java.util.Stack;
+
 /**
  * @date: 11/03/2017 10:51 PM
  * @author: qinjiangbo@github.io
@@ -12,7 +15,29 @@ package ValidParentheses;
  */
 public class Solution {
 
-    public boolean isValid(String s) {
-        return true;
+    public static boolean isValid(String s) {
+        Stack stack = new Stack<Character>();
+        int len = s.length();
+        if (s.length() == 0 || s == null) { return false; }
+        for (int i = 0; i<len; i++) {
+            if (s.charAt(i) == '[' || s.charAt(i) == '{' || s.charAt(i) == '(') {
+                stack.push(s.charAt(i));
+            }
+            if (s.charAt(i) == ']') {
+                if (stack.empty() || !stack.pop().equals('[')) { return false; }
+            }
+            if (s.charAt(i) == '}') {
+                if (stack.empty() || !stack.pop().equals('{')) { return false; }
+            }
+            if (s.charAt(i) == ')') {
+                if (stack.empty() || !stack.pop().equals('(')) { return false; }
+            }
+        }
+        return stack.empty();
+    }
+
+    public static void main(String[] args) {
+        String s = "([)]";
+        System.out.println(isValid(s));
     }
 }
