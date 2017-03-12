@@ -44,6 +44,7 @@ public class Solution {
             return;
         }
 
+        // in each back track, there are 1 ~ 2 options to add "(" or ")"
         if (open < n) {
             backtrack(list, str + "(", open + 1, close, n);
         }
