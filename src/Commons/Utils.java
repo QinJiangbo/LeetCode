@@ -11,12 +11,19 @@ public class Utils {
      * @param vals
      * @return
      */
-    public ListNode genNodes(int... vals) {
+    public static ListNode genNodes(int... vals) {
         if (vals.length == 0) { return null; }
-        ListNode head = new ListNode(vals[0]), current;
-        int len = vals.length;
+        if (vals.length == 1) { return new ListNode(vals[0]); }
+        ListNode head = null, current = null; int len = vals.length;
         for (int i = 0; i < len; i++) {
-
+            if (i > 0) {
+                ListNode node = new ListNode(vals[i]);
+                current.next = node;
+                current = node;
+            } else {
+                current = new ListNode(vals[i]);
+                head = current;
+            }
         }
         return head;
     }
@@ -25,7 +32,15 @@ public class Utils {
      * print all list nodes
      * @param head
      */
-    public void printNodes(ListNode head) {
-
+    public static void printNodes(ListNode head) {
+        if (head == null) { return; }
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(head.val + " -> ");
+        while (head.next != null) {
+            stringBuilder.append(head.next.val + " -> ");
+            head = head.next;
+        }
+        String printStr = stringBuilder.toString();
+        System.out.println(printStr.substring(0, printStr.lastIndexOf(" -> ")));
     }
 }
