@@ -1,5 +1,7 @@
 package MergeTwoSortedLists;
 
+import Commons.ListNode;
+
 /**
  * @date: 12/03/2017 6:16 PM
  * @author: qinjiangbo@github.io

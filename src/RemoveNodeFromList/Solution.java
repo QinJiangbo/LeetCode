@@ -1,5 +1,7 @@
 package RemoveNodeFromList;
 
+import Commons.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 

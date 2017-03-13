@@ -1,5 +1,7 @@
 package AddTwoNum;
 
+import Commons.ListNode;
+
 /**
  * @date: 02/03/2017 9:04 PM
  * @author: qinjiangbo@github.io
