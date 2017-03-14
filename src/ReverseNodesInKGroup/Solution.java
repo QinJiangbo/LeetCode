@@ -1,6 +1,7 @@
 package ReverseNodesInKGroup;
 
 import Commons.ListNode;
+import Commons.Utils;
 
 /**
  * @date: 14/03/2017 7:54 PM
@@ -22,6 +23,23 @@ import Commons.ListNode;
 public class Solution {
 
     public ListNode reverseKGroup(ListNode head, int k) {
-        return null;
+        ListNode current = head;
+        int count = 0;
+        while (current != null && count != k) {
+            current = current.next;
+            count++;
+        }
+        // k+1 node has been found
+        if (count == k) {
+            current = reverseKGroup(current, k);
+            while (count-- > 0) {
+                ListNode tmp = head.next; // tmp - next head in direct part
+                head.next = current; // pre-appending "direct" head to the reversed list
+                current = head; // move head of reversed part to a new node
+                head = tmp;
+            }
+            head = current;
+        }
+        return head;
     }
 }
