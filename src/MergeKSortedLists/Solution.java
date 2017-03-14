@@ -1,6 +1,7 @@
 package MergeKSortedLists;
 
 import Commons.ListNode;
+import Commons.Utils;
 
 /**
  * @date: 13/03/2017 10:02 PM
@@ -12,13 +13,26 @@ import Commons.ListNode;
 public class Solution {
 
     public ListNode mergeKLists(ListNode[] lists) {
+        if (lists.length == 0) { return null; }
+        if (lists.length == 1) { return lists[0]; }
         int len = lists.length;
-        int lo = 0, high = len -1, mid = (high - lo + 1) / 2;
+        int lo = 0, high = len - 1, mid = (high + lo) / 2;
         return partition(lists, lo, mid, high);
     }
 
     private ListNode partition(ListNode[] lists, int lo, int mid, int high) {
-        return null;
+        // finished conditions
+        if (high == mid + 1) {
+            if (mid == lo) { return mergeTwoLists(lists[mid], lists[high]);}
+            if (mid == lo + 1) {
+                ListNode tmp = mergeTwoLists(lists[mid], lists[high]);
+                return mergeTwoLists(lists[lo], tmp);
+            }
+        }
+        // partition
+        ListNode node1 = partition(lists, lo, (mid + lo) / 2, mid);
+        ListNode node2 = partition(lists, mid + 1, (high + mid + 1) /2, high);
+        return mergeTwoLists(node1, node2);
     }
 
     private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
