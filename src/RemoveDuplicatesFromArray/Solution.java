@@ -19,7 +19,7 @@ package RemoveDuplicatesFromArray;
  */
 public class Solution {
 
-    public static int removeDuplicates(int[] nums) {
+    public int removeDuplicates(int[] nums) {
         if (nums.length < 2) { return nums.length; }
         int index = 1, len = nums.length;
         for (int i = 1; i < len; i++) {
@@ -29,10 +29,5 @@ public class Solution {
             }
         }
         return index;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 4, 5, 5, 7, 8};
-        System.out.println(removeDuplicates(nums));
     }
 }
