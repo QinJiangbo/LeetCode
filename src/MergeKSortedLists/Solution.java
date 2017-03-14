@@ -1,7 +1,6 @@
 package MergeKSortedLists;
 
 import Commons.ListNode;
-import Commons.Utils;
 
 /**
  * @date: 13/03/2017 10:02 PM
