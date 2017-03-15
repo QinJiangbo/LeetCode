@@ -22,8 +22,4 @@ public class Solution {
         if (j == N) return i - N;
         return -1;
     }
-
-    public static void main(String[] args) {
-        System.out.println(strStr("mississippi", "issip"));
-    }
 }
