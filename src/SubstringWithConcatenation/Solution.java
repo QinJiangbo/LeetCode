@@ -23,7 +23,7 @@ public class Solution {
     public static List<Integer> findSubstring(String s, String[] words) {
         if (words.length == 0) { return null; }
 
-        List<Integer> indeces = new LinkedList<>();
+        List<Integer> indices = new LinkedList<>();
 
         int wlen = words[0].length();
         int len = s.length();
@@ -39,10 +39,10 @@ public class Solution {
         for (int i = 0; i < (len - wlen + 1); i++) {
             int j = i + wlen;
             if (map.containsKey(s.substring(i, j))) {
-                if (!tmp.containsKey(s.substring(i, j))
-                        || tmp.get(s.substring(i, j)) == map.get(s.substring(i, j))) {
+                if (tmp.containsKey(s.substring(i, j)) &&
+                        tmp.get(s.substring(i, j)).equals(map.get(s.substring(i, j)))) {
                     started = false;
-                    i = i - tmp.size() * wlen;
+                    i = i - sum(tmp) * wlen;
                     tmp.clear();
                 }
                 else {
@@ -50,28 +50,43 @@ public class Solution {
                     int count = tmp.get(s.substring(i, j)) == null ? 0 : tmp.get(s.substring(i,j));
                     tmp.put(s.substring(i, j), count + 1);
                     i = j;
-                    if (tmp.size() == words.length){
-                        indeces.add(i - words.length * wlen);
+                    if (sum(tmp) == words.length){
+                        indices.add(i - words.length * wlen);
                         started = false;
                         tmp.clear();
-                        i = i - (words.length - 1) * wlen;
+                        i = i - words.length * wlen;
+                        continue;
                     }
                     i--;
                 }
             }
             else {
                 if (started) {
-                    i = i - tmp.size() * wlen;
+                    i = i - sum(tmp) * wlen;
                     tmp.clear();
                 }
             }
         }
-        return indeces;
+        return indices;
+    }
+
+    private static int sum(Map<String, Integer> map) {
+        int sum = 0;
+        for (Integer integer: map.values()) {
+            sum = sum +  integer;
+        }
+        return sum;
     }
 
     public static void main(String[] args) {
-        String s = "barfoofoobarthefoobarman";
-        String[] words = { "bar","foo","the" };
+        String s = "aaaaaaaa";
+        String[] words = { "aa","aa","aa"};
         System.out.println(findSubstring(s, words).toString());
+//        Map<String, Integer> map = new HashMap<>();
+//        map.put("one", 1);
+//        map.put("two", 2);
+//        map.put("three", 3);
+//
+//        System.out.println(sum(map));
     }
 }
