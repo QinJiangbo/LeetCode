@@ -27,25 +27,28 @@ public class Solution {
 
         int wlen = words[0].length();
         int len = s.length();
-        Set<String> set = new HashSet<>();
+        Map<String, Integer> map = new HashMap<>();
         // put words into set
         for (String word: words) {
-            set.add(word);
+            int count = map.get(word) == null ? 0 : map.get(word);
+            map.put(word, count + 1);
         }
 
-        Set<String> tmp = new HashSet<>();
+        Map<String, Integer> tmp = new HashMap<>();
         boolean started = false;
         for (int i = 0; i < (len - wlen + 1); i++) {
             int j = i + wlen;
-            if (set.contains(s.substring(i, j))) {
-                if (tmp.contains(s.substring(i, j))) {
+            if (map.containsKey(s.substring(i, j))) {
+                if (!tmp.containsKey(s.substring(i, j))
+                        || tmp.get(s.substring(i, j)) == map.get(s.substring(i, j))) {
                     started = false;
                     i = i - tmp.size() * wlen;
                     tmp.clear();
                 }
                 else {
                     started = true;
-                    tmp.add(s.substring(i, j));
+                    int count = tmp.get(s.substring(i, j)) == null ? 0 : tmp.get(s.substring(i,j));
+                    tmp.put(s.substring(i, j), count + 1);
                     i = j;
                     if (tmp.size() == words.length){
                         indeces.add(i - words.length * wlen);
