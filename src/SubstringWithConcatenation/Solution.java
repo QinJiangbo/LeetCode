@@ -20,7 +20,13 @@ import java.util.*;
  */
 public class Solution {
 
-    public static List<Integer> findSubstring(String s, String[] words) {
+    /**
+     * ACCEPT VERSION
+     * @param s
+     * @param words
+     * @return
+     */
+    public List<Integer> findSubstring(String s, String[] words) {
         if (words.length == 0) { return null; }
 
         List<Integer> indices = new LinkedList<>();
@@ -52,17 +58,5 @@ public class Solution {
 
         }
         return indices;
-    }
-
-    public static void main(String[] args) {
-        String s = "aaaaaaaa";
-        String[] words = { "aa","aa","aa"};
-        System.out.println(findSubstring(s, words).toString());
-//        Map<String, Integer> map = new HashMap<>();
-//        map.put("one", 1);
-//        map.put("two", 2);
-//        map.put("three", 3);
-//
-//        System.out.println(sum(map));
     }
 }
