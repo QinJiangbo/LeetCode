@@ -30,52 +30,28 @@ public class Solution {
         Map<String, Integer> map = new HashMap<>();
         // put words into set
         for (String word: words) {
-            int count = map.get(word) == null ? 0 : map.get(word);
+            int count = map.containsKey(word) ? map.get(word) : 0;
             map.put(word, count + 1);
         }
 
-        Map<String, Integer> tmp = new HashMap<>();
-        boolean started = false;
-        for (int i = 0; i < (len - wlen + 1); i++) {
-            int j = i + wlen;
-            if (map.containsKey(s.substring(i, j))) {
-                if (tmp.containsKey(s.substring(i, j)) &&
-                        tmp.get(s.substring(i, j)).equals(map.get(s.substring(i, j)))) {
-                    started = false;
-                    i = i - sum(tmp) * wlen;
-                    tmp.clear();
-                }
-                else {
-                    started = true;
-                    int count = tmp.get(s.substring(i, j)) == null ? 0 : tmp.get(s.substring(i,j));
-                    tmp.put(s.substring(i, j), count + 1);
-                    i = j;
-                    if (sum(tmp) == words.length){
-                        indices.add(i - words.length * wlen);
-                        started = false;
-                        tmp.clear();
-                        i = i - words.length * wlen;
-                        continue;
-                    }
-                    i--;
-                }
+        for (int i = 0; i <= (len - words.length * wlen); i++) {
+            // copy of original map
+            Map<String, Integer> tmp = new HashMap<>(map);
+            for (int j = 0; j < words.length; j++) {
+                // find match
+                String sub = s.substring(i + j * wlen , i + (j + 1) * wlen);
+                // matching
+                if (tmp.containsKey(sub)) {
+                    int count = tmp.get(sub);
+                    // remove items will be faster
+                    if (count == 1) { tmp.remove(sub); }
+                    else { tmp.put(sub, count - 1); }
+                    if (tmp.isEmpty()) { indices.add(i); continue; }
+                } else { break; }
             }
-            else {
-                if (started) {
-                    i = i - sum(tmp) * wlen;
-                    tmp.clear();
-                }
-            }
+
         }
         return indices;
-    }
-
-    private static int sum(Map<String, Integer> map) {
-        int sum = 0;
-        for (Integer integer: map.values()) {
-            sum = sum +  integer;
-        }
-        return sum;
     }
 
     public static void main(String[] args) {
