@@ -20,6 +20,10 @@ package NextPermutation;
  */
 public class Solution {
 
+    /**
+     * find next permutation for the nums
+     * @param nums
+     */
     public void nextPermutation(int[] nums) {
 
     }
