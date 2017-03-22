@@ -69,11 +69,4 @@ public class Solution {
             j--;
         }
     }
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[] nums = {1, 1, 5};
-        solution.nextPermutation(nums);
-        System.out.println(Arrays.toString(nums));
-    }
 }
