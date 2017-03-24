@@ -1,4 +1,4 @@
-package LoadBalance;
+package Interview;
 
 /**
  * @date: 23/03/2017 11:31 AM
@@ -6,7 +6,7 @@ package LoadBalance;
  */
 import java.util.Scanner;
 
-public class Main {
+public class LoadBalance {
 
     public static void main(String[] args)  {
         Scanner in = new Scanner(System.in);
