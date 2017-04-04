@@ -17,6 +17,13 @@ import java.util.Stack;
  */
 public class Solution {
 
+
+    /**
+     * Time Limited Exceed Version
+     * @param s
+     * @return
+     */
+    @Deprecated
     public int longestValidParentheses(String s) {
         Stack<Integer> stack = new Stack<>();
         int max = 0, left = -1;
