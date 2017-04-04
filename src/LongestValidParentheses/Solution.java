@@ -17,7 +17,7 @@ import java.util.Stack;
  */
 public class Solution {
 
-    public static int longestValidParentheses(String s) {
+    public int longestValidParentheses(String s) {
         Stack<Integer> stack = new Stack<>();
         int max = 0, left = -1;
         for (int i = 0; i < s.length(); i++) {
@@ -32,10 +32,5 @@ public class Solution {
             }
         }
         return max;
-    }
-
-    public static void main(String[] args) {
-        String s = ")()())()()(";
-        System.out.println(longestValidParentheses(s));
     }
 }
