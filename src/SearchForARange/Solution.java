@@ -13,7 +13,7 @@ package SearchForARange;
  */
 public class Solution {
 
-    public int[] searchRange(int[] nums, int target) {
+    public int[] searchRange0(int[] nums, int target) {
         int start = -1, end = -1;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == target) {
@@ -33,6 +33,39 @@ public class Solution {
             }
         }
         return new int[]{start, end};
+    }
+
+    public int[] searchRange(int[] nums, int target) {
+        int[] ranges = {-1, -1};
+        int left = findMostLeftOrRight(nums, target, true);
+        if (left == nums.length || nums[left] != target) {
+            return ranges;
+        }
+        ranges[0] = left;
+        ranges[1] = findMostLeftOrRight(nums, target, false) - 1;
+
+        return ranges;
+    }
+
+    /**
+     * 查找目标值最左或者最右的索引
+     * @param nums
+     * @param target
+     * @param left
+     * @return
+     */
+    public int findMostLeftOrRight(int[] nums, int target, boolean left) {
+        int lo = 0;
+        int hi = nums.length;
+        while (lo < hi) {
+            int mid = (lo + hi) / 2;
+            if (nums[mid] > target || (left && nums[mid] == target)) {
+                hi = mid;
+            } else {
+                lo = mid + 1;
+            }
+        }
+        return lo;
     }
 
 }
