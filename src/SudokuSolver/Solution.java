@@ -11,7 +11,7 @@ package SudokuSolver;
 public class Solution {
 
     /**
-     * 解数独
+     * 解数独问题
      * @param board
      */
     public void solveSudoku(char[][] board) {
