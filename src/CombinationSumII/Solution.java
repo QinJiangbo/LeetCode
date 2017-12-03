@@ -33,7 +33,7 @@ public class Solution {
      * @param target
      * @return
      */
-    public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> list = new ArrayList<>();
         Arrays.sort(candidates);
         backtrack(list, new ArrayList<>(), candidates, target, 0);
@@ -48,7 +48,7 @@ public class Solution {
      * @param remain
      * @param start
      */
-    public static void backtrack(List<List<Integer>> list, List<Integer> tempList,
+    public void backtrack(List<List<Integer>> list, List<Integer> tempList,
                           int[] candidates, int remain, int start) {
         if (remain < 0) { return; }
         else if (remain == 0) { list.add(new ArrayList<>(tempList)); }
@@ -64,4 +64,5 @@ public class Solution {
             }
         }
     }
+
 }
