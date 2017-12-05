@@ -14,6 +14,11 @@ package FirstMissingPositive;
  */
 public class Solution {
 
+    /**
+     * 找到第一个正整数
+     * @param nums
+     * @return
+     */
     public int firstMissingPositive(int[] nums) {
         return 0;
     }
