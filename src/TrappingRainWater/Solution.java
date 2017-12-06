@@ -12,7 +12,7 @@ package TrappingRainWater;
  */
 public class Solution {
 
-    public static int trap(int[] height) {
+    public int trap(int[] height) {
         // 如果只有两个元素，根本不可能有容量
         if (height.length <= 2) {
             return 0;
@@ -43,7 +43,7 @@ public class Solution {
      * @param height
      * @return
      */
-    private static int findRight(int i, int[] height) {
+    private int findRight(int i, int[] height) {
         int max = 0;
         // 先判断后面有没有又边界
         for (int j = i + 1; j < height.length; j++) {
@@ -54,10 +54,5 @@ public class Solution {
             }
         }
         return max;
-    }
-
-    public static void main(String[] args) {
-        int[] height = {4,2,3};
-        System.out.println(trap(height));
     }
 }
