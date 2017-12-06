@@ -30,6 +30,7 @@ public class Solution {
         int missing = nums.length;
         // 哪一个地方的值缺了就选择这一块
         for (int i = 0; i < nums.length; i++) {
+            // 不能使用nums[i]<=0判断是因为会存在多余的数，或者重复的数
             if (nums[i] != i + 1) {
                 return i + 1;
             }
