@@ -45,7 +45,7 @@ public class Solution {
      */
     private int findRight(int i, int[] height) {
         int max = 0;
-        // 先判断后面有没有又边界
+        // 先判断后面有没有右边界
         for (int j = i + 1; j < height.length; j++) {
             if (height[j] >= height[i]) {
                 return height[i];
