@@ -31,7 +31,7 @@ public class Solution {
         char[] sa = s.toCharArray();
         char[] pa = p.toCharArray();
         for (int i = 0; i < pa.length; i++) {
-            if (pa[i] == '*') continue; // skip '*' symbol
+            if (pa[i] == '*') { continue; } // skip '*' symbol
             boolean marked = i < pa.length - 1 && pa[i + 1] == '*';
             Set<Integer> nexts = new HashSet<>();
             for (int state : states) {
