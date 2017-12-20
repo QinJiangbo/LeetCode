@@ -1,7 +1,5 @@
 package MultiplyStrings;
 
-import java.util.Arrays;
-
 /**
  * @date: 19/12/2017 10:16 PM
  * @author: qinjiangbo@github.io
@@ -18,7 +16,7 @@ import java.util.Arrays;
  */
 public class Solution {
 
-    public static String multiply(String num1, String num2) {
+    public String multiply(String num1, String num2) {
         int length1 = num1.length();
         int length2 = num2.length();
         int length = length1 + length2;
@@ -48,12 +46,5 @@ public class Solution {
             }
         }
         return stringBuilder.toString();
-    }
-
-    public static void main(String[] args) {
-        String num1 = "31345";
-        String num2 = "25";
-        String result = multiply(num1, num2);
-        System.out.println(result);
     }
 }
