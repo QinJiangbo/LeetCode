@@ -1,5 +1,7 @@
 package MultiplyStrings;
 
+import java.util.Arrays;
+
 /**
  * @date: 19/12/2017 10:16 PM
  * @author: qinjiangbo@github.io
@@ -16,8 +18,42 @@ package MultiplyStrings;
  */
 public class Solution {
 
-    public String multiply(String num1, String num2) {
+    public static String multiply(String num1, String num2) {
+        int length1 = num1.length();
+        int length2 = num2.length();
+        int length = length1 + length2;
+        int[] results = new int[length];
+        for (int i = length1 - 1; i >= 0; i--) {
+            for (int j = length2 - 1; j >= 0; j--) {
+                int op1 = Character.digit(num1.charAt(i), 10);
+                int op2 = Character.digit(num2.charAt(j), 10);
+                int result = op1 * op2;
+                results[i + j + 1] = result % 10 + results[i + j + 1];
+                int temp = results[i + j + 1];
+                if (results[i + j + 1] >= 10) {
+                    results[i + j + 1] = temp % 10;
+                    results[i + j] = temp / 10 + results[i + j];
+                }
+                results[i + j] = result / 10 + results[i + j];
+            }
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        boolean isLeadingZero = true;
+        for (int k = 0; k < length; k++) {
+            if (isLeadingZero && results[k] == 0) {
+                continue; // skip
+            } else {
+                isLeadingZero = false;
+                stringBuilder.append(results[k]);
+            }
+        }
+        return stringBuilder.toString();
+    }
 
-        return null;
+    public static void main(String[] args) {
+        String num1 = "31345";
+        String num2 = "25";
+        String result = multiply(num1, num2);
+        System.out.println(result);
     }
 }
