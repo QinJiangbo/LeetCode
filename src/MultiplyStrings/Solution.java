@@ -23,9 +23,7 @@ public class Solution {
         int[] results = new int[length];
         for (int i = length1 - 1; i >= 0; i--) {
             for (int j = length2 - 1; j >= 0; j--) {
-                int op1 = Character.digit(num1.charAt(i), 10);
-                int op2 = Character.digit(num2.charAt(j), 10);
-                int result = op1 * op2;
+                int result = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
                 results[i + j + 1] = result % 10 + results[i + j + 1];
                 int temp = results[i + j + 1];
                 if (results[i + j + 1] >= 10) {
@@ -38,6 +36,9 @@ public class Solution {
         StringBuilder stringBuilder = new StringBuilder();
         boolean isLeadingZero = true;
         for (int k = 0; k < length; k++) {
+            if (k == length - 1) {
+                isLeadingZero = false;
+            }
             if (isLeadingZero && results[k] == 0) {
                 continue; // skip
             } else {
