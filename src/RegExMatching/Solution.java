@@ -36,7 +36,9 @@ public class Solution {
             Set<Integer> nexts = new HashSet<>();
             for (int state : states) {
                 if (state >= sa.length) {
-                    if (marked) nexts.add(state);
+                    if (marked) {
+                        nexts.add(state);
+                    }
                 } else if (marked) {
                     nexts.add(state); // add item itself, and it's optional
                     for (int j = state; j < sa.length
